@@ -1,6 +1,6 @@
 import "./App.css";
 import Form from "./components/Form";
-// import { useState } from "react";
+import { useEffect, useState } from "react";
 import List from "./components/List";
 import useLocalStorageState from "use-local-storage-state";
 
@@ -8,17 +8,42 @@ export default function App() {
   const [activities, setActivities] = useLocalStorageState("activities", {
     defaultValue: [],
   });
+  const [weather, setWeather] = useState(true);
 
   function handleAddActivities(newActivity) {
     setActivities((prevActivities) => [...prevActivities, { ...newActivity }]);
   }
 
+  // function handleDeleteActivity(id) {
+  //   console.log(id);
+  //   setActivities(activities.filter((activity) => activity.id !== id));
+  // }
+
+  useEffect(() => {
+    async function startFetching() {
+      const response = await fetch(
+        "https://example-apis.vercel.app/api/weather/europe"
+      );
+      const data = await response.json();
+      console.log(data);
+      setWeather(data);
+    }
+    startFetching();
+  }, []);
+
   return (
     <div>
-      <Form onAddActivity={handleAddActivities} />
+      <h1>
+        {weather.condition} {weather.temperature}°C
+      </h1>
       <ul>
-        <List activities={activities} />
+        <List
+          activities={activities}
+          weather={weather.isGoodWeather}
+          // onDeleteActivity={handleDeleteActivity}
+        />
       </ul>
+      <Form onAddActivity={handleAddActivities} />
     </div>
   );
 }
