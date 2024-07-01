@@ -1,9 +1,13 @@
 import "./App.css";
 import Form from "./components/Form";
-import { useState } from "react";
+// import { useState } from "react";
+import List from "./components/List";
+import useLocalStorageState from "use-local-storage-state";
 
-function App() {
-  const [activities, setActivities] = useState([]);
+export default function App() {
+  const [activities, setActivities] = useLocalStorageState("activities", {
+    defaultValue: [],
+  });
 
   function handleAddActivities(newActivity) {
     setActivities((prevActivities) => [...prevActivities, { ...newActivity }]);
@@ -13,12 +17,8 @@ function App() {
     <div>
       <Form onAddActivity={handleAddActivities} />
       <ul>
-        {activities.map((activity) => (
-          <li key={activity.id}>{activity.name}</li>
-        ))}
+        <List activities={activities} />
       </ul>
     </div>
   );
 }
-
-export default App;
