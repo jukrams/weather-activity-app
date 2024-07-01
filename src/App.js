@@ -11,13 +11,14 @@ export default function App() {
   const [weather, setWeather] = useState(true);
 
   function handleAddActivities(newActivity) {
+    console.log("handle add activates");
     setActivities((prevActivities) => [...prevActivities, { ...newActivity }]);
   }
 
-  // function handleDeleteActivity(id) {
-  //   console.log(id);
-  //   setActivities(activities.filter((activity) => activity.id !== id));
-  // }
+  function handleDeleteActivity(id) {
+    console.log("handle delete activates");
+    setActivities(activities.filter((activity) => activity.id !== id));
+  }
 
   useEffect(() => {
     async function startFetching() {
@@ -40,7 +41,7 @@ export default function App() {
         <List
           activities={activities}
           weather={weather.isGoodWeather}
-          // onDeleteActivity={handleDeleteActivity}
+          onDeleteActivity={handleDeleteActivity}
         />
       </ul>
       <Form onAddActivity={handleAddActivities} />
