@@ -11,7 +11,12 @@ export default function List({ activities, weather, onDeleteActivity }) {
       {filteredActivities.map((activity) => (
         <li key={activity.id}>
           {activity.name}
-          <button onClick={() => onDeleteActivity(activity.id)}>X</button>
+          <button
+            className="button--delete"
+            onClick={() => onDeleteActivity(activity.id)}
+          >
+            X
+          </button>
         </li>
       ))}
     </>

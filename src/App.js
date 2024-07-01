@@ -39,7 +39,7 @@ export default function App() {
   }, []);
 
   return (
-    <div>
+    <div className="main-container">
       <h1>
         {weather.condition} {weather.temperature}°C
       </h1>

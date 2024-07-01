@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100..400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playwrite+NG+Modern:wght@100..400&display=swap");
+
+* {
+  text-align: center;
+}
+
+body,
+html {
+  background-color: #212529;
+  font-family: "Playwrite NG Modern";
+  color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button--submit {
+  border: none;
+  padding: 8px 40px;
+  margin-top: 20px;
+  color: #212529;
+  font-family: "Nunito";
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.button--submit:hover {
+  background-color: #adb5bd;
+}
+
+#activity-name {
+  border: none;
+  border-radius: 5px;
+  height: 25px;
+  background-color: #6c757d;
+  color: #f8f9fa;
+  font-family: "Nunito";
+  font-size: 18px;
+  text-align: left;
+}
+
+li {
+  background-color: #6c757d;
+  min-width: fit-content;
+  width: 300px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+
+.button--delete {
+  border: none;
+  background-color: transparent;
+  font-family: "Nunito";
+  color: #f8f9fa;
+  font-size: 20px;
+}
+
+.button--delete:hover {
+  color: rgb(170, 25, 25);
+}
+
+p {
+  font-size: 24px;
+}
+
+h2 {
+  padding-top: 50px;
+}
+
+.name-label,
+.checkbox-label {
+  font-size: 18px;
+}
+
+#good-weather-activity {
+  color: #6c757d;
+}
