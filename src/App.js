@@ -11,12 +11,10 @@ export default function App() {
   const [weather, setWeather] = useState(true);
 
   function handleAddActivities(newActivity) {
-    console.log("handle add activates");
     setActivities((prevActivities) => [...prevActivities, { ...newActivity }]);
   }
 
   function handleDeleteActivity(id) {
-    console.log("handle delete activates");
     setActivities(activities.filter((activity) => activity.id !== id));
   }
 
@@ -26,10 +24,18 @@ export default function App() {
         "https://example-apis.vercel.app/api/weather/europe"
       );
       const data = await response.json();
-      console.log(data);
       setWeather(data);
     }
+
     startFetching();
+
+    const timer = setInterval(() => {
+      startFetching();
+    }, 5000);
+
+    return () => {
+      clearInterval(timer);
+    };
   }, []);
 
   return (

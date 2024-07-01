@@ -9,7 +9,6 @@ export default function Form({ onAddActivity }) {
       isForGoodWeather: event.target.isForGoodWeather.checked,
     };
     onAddActivity(activities);
-    console.log(activities);
     event.target.reset();
   }
   return (
